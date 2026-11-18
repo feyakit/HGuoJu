@@ -29,7 +29,6 @@ const (
 	sourceDSD           = "dsd"
 	sourceCloudFront    = "cloudfront"
 	sourceSorani        = "sorani"
-	sourceGuipian       = "guipian"
 	sourceHanxiaoquan   = "hanxiaoquan"
 
 	providerMaxBodyBytes = 20 * 1024 * 1024
@@ -91,7 +90,7 @@ func splitProviderDramaID(id string) (source, sourceID string, ok bool) {
 
 func isHuangguoProviderSource(source string) bool {
 	switch canonicalProviderSource(source) {
-	case sourceHuangguoAI, sourceHuangguoVideo, sourceHuangdou, sourceHongguo, sourceHuangju, sourceYeguo, sourceDSD, sourceCloudFront, sourceSorani, sourceGuipian, sourceHanxiaoquan:
+	case sourceHuangguoAI, sourceHuangguoVideo, sourceHuangdou, sourceHongguo, sourceHuangju, sourceYeguo, sourceDSD, sourceCloudFront, sourceSorani, sourceHanxiaoquan:
 		return true
 	default:
 		return false
@@ -118,8 +117,6 @@ func canonicalProviderSource(source string) string {
 		return sourceCloudFront
 	case "sorani", "sorani.net", "www.sorani.net", "api.sorani.cc", "sorani.cc":
 		return sourceSorani
-	case "guipian", "guipianwu.com", "www.guipianwu.com":
-		return sourceGuipian
 	case "hanxiaoquan", "jennyhow.com", "www.jennyhow.com":
 		return sourceHanxiaoquan
 	default:
@@ -233,9 +230,6 @@ func (d *Downloader) GetHuangguoChapters(ctx context.Context, source, sourceID s
 		return drama.DisplayTitle(), chapters, err
 	case sourceSorani:
 		drama, chapters, err := d.fetchSoraniDetail(ctx, sourceID)
-		return drama.DisplayTitle(), chapters, err
-	case sourceGuipian:
-		drama, chapters, err := d.fetchGuipianDetail(ctx, sourceID)
 		return drama.DisplayTitle(), chapters, err
 	case sourceHanxiaoquan:
 		drama, chapters, err := d.fetchHanxiaoquanDetail(ctx, sourceID)

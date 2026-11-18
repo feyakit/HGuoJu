@@ -2,6 +2,7 @@ package core
 
 import (
 	"net/url"
+	"strconv"
 
 	"regexp"
 
@@ -55,4 +56,32 @@ func truncate(s string, n int) string {
 		return s
 	}
 	return string(r[:n]) + "..."
+}
+
+func unescapeHTML(text string) string {
+	replacer := strings.NewReplacer(
+		"&amp;", "&", "&lt;", "<", "&gt;", ">", "&quot;", "\"",
+		"&apos;", "'", "&#39;", "'", "&nbsp;", " ",
+	)
+	for i := 0; i < 3; i++ {
+		next := replacer.Replace(text)
+		next = regexp.MustCompile(`&#x([0-9a-fA-F]+);`).ReplaceAllStringFunc(next, func(m string) string {
+			hex := m[3 : len(m)-1]
+			if code, err := strconv.ParseInt(hex, 16, 32); err == nil {
+				return string(rune(code))
+			}
+			return m
+		})
+		next = regexp.MustCompile(`&#(\d+);`).ReplaceAllStringFunc(next, func(m string) string {
+			if code, err := strconv.Atoi(m[2 : len(m)-1]); err == nil {
+				return string(rune(code))
+			}
+			return m
+		})
+		if next == text {
+			break
+		}
+		text = next
+	}
+	return text
 }

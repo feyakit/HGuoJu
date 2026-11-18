@@ -41,8 +41,6 @@ func (d *Downloader) providerBaseURL(source string) string {
 		configured, fallback = d.cfg.DSDURL, dsdBaseURL
 	case sourceSorani:
 		configured, fallback = d.cfg.SoraniURL, soraniSiteBaseURL
-	case sourceGuipian:
-		configured, fallback = d.cfg.GuipianURL, guipianSiteBaseURL
 	case sourceHanxiaoquan:
 		configured, fallback = d.cfg.HanxiaoquanURL, hanxiaoquanSiteBaseURL
 	default:
@@ -77,8 +75,6 @@ func providerSourceForURL(raw string) string {
 		return sourceDSD
 	case host == "sorani.net" || host == "www.sorani.net" || host == "api.sorani.cc" || host == "sorani.cc":
 		return sourceSorani
-	case host == "guipianwu.com" || host == "www.guipianwu.com":
-		return sourceGuipian
 	case host == "jennyhow.com" || host == "www.jennyhow.com":
 		return sourceHanxiaoquan
 	default:
@@ -135,9 +131,6 @@ func (d *Downloader) resolveProviderMedia(ctx context.Context, task Task) (provi
 	}
 	if chapter.Source == sourceSorani {
 		return d.resolveSoraniMedia(ctx, task)
-	}
-	if chapter.Source == sourceGuipian {
-		return d.resolveGuipianMedia(ctx, task)
 	}
 	if chapter.Source == sourceHanxiaoquan {
 		return d.resolveHanxiaoquanMedia(ctx, task)

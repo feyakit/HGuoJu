@@ -36,8 +36,8 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
-        manifestPlaceholders["appLabel"] = if (allSources) "真果剧" else "果剧"
-        manifestPlaceholders["appBanner"] = if (allSources) "@drawable/tv_banner_all_sources" else "@drawable/tv_banner"
+        manifestPlaceholders["appLabel"] = "真果剧"
+        manifestPlaceholders["appBanner"] = "@drawable/tv_banner_all_sources"
     }
 
     signingConfigs {

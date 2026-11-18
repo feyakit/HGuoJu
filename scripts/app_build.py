@@ -4,19 +4,24 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class BuildVariant:
-    all_sources: bool = False
+    """只维护全站源版：任何构造方式都固定为真果剧，保留字段是为了兼容旧调用。"""
+
+    all_sources: bool = True
+
+    def __post_init__(self):
+        object.__setattr__(self, 'all_sources', True)
 
     @property
     def name(self):
-        return '真果剧' if self.all_sources else '果剧'
+        return '真果剧'
 
     @property
     def slug(self):
-        return 'zhenguoju' if self.all_sources else 'guoju'
+        return 'zhenguoju'
 
     @property
     def arguments(self):
-        return ['--all-sources'] if self.all_sources else []
+        return ['--all-sources']
 
     @property
     def flutter_arguments(self):
@@ -35,9 +40,9 @@ class BuildVariant:
             key, separator, value = base64.b64decode(item, validate=True).decode('utf-8').partition('=')
             if separator:
                 values[key] = value
-        return cls(values.get('ALL_SOURCES') == 'true')
+        return cls(True)
 
 
 def add_variant_argument(parser):
     parser.add_argument('--all-sources', action='store_true',
-                        help='构建包含全部站源的真果剧；默认构建仅红果的果剧')
+                        help='兼容参数：当前只产出全站源版（真果剧）')

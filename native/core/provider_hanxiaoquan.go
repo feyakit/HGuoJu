@@ -88,7 +88,7 @@ func hanxiaoquanClean(text string) string {
 		return ""
 	}
 	text = reHanxiaoquanTag.ReplaceAllString(text, "")
-	text = guipianUnescape(text)
+	text = unescapeHTML(text)
 	text = strings.ReplaceAll(text, "\u3000", " ")
 	return strings.Join(strings.Fields(text), " ")
 }

@@ -65,8 +65,6 @@ func validNativeCategory(source, category string) bool {
 		return webProviderNumericID.MatchString(category)
 	case sourceSorani:
 		return validSoraniCategory(category)
-	case sourceGuipian:
-		return validGuipianCategory(category)
 	case sourceHanxiaoquan:
 		return validHanxiaoquanCategory(category)
 	}
@@ -131,8 +129,6 @@ func (engine *nativeEngine) nativeCategories(ctx context.Context, source string,
 		}
 	case sourceSorani:
 		all = append(all, d.fetchSoraniCategories()...)
-	case sourceGuipian:
-		all = append(all, d.fetchGuipianCategories()...)
 	case sourceHanxiaoquan:
 		all = append(all, d.fetchHanxiaoquanCategories()...)
 	default:
