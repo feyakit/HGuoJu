@@ -29,15 +29,15 @@ func TestNativeCategoryPaginationStaysIndependent(t *testing.T) {
 		return sourceFixtureResponse(request, 200, string(body)), nil
 	})
 	for _, input := range []nativeInput{
-		{Source: sourceHuangguoAI, Category: "ai-hguoju", Page: 1},
-		{Source: sourceHuangguoAI, Category: "ai-hguoju", Page: 2},
+		{Source: sourceHuangguoAI, Category: "ai-duanju", Page: 1},
+		{Source: sourceHuangguoAI, Category: "ai-duanju", Page: 2},
 		{Source: sourceHuangguoAI, Category: "ai-manju", Page: 1},
 	} {
 		if _, err := engine.nativeCatalog(context.Background(), input); err != nil {
 			t.Fatal(err)
 		}
 	}
-	short := engine.nativeCached(nativeCatalogKey(sourceHuangguoAI, "ai-hguoju"))
+	short := engine.nativeCached(nativeCatalogKey(sourceHuangguoAI, "ai-duanju"))
 	comic := engine.nativeCached(nativeCatalogKey(sourceHuangguoAI, "ai-manju"))
 	if short.Page != 2 || short.HasMore || len(short.Items) != 25 || comic.Page != 1 || !comic.HasMore || len(comic.Items) != 24 {
 		t.Fatal("category cursors or entries leaked", short.Page, short.HasMore, len(short.Items), comic.Page, comic.HasMore, len(comic.Items))
@@ -52,7 +52,7 @@ func TestNativeCategoryPaginationStaysIndependent(t *testing.T) {
 	}
 	restored := &nativeEngine{directory: engine.directory, catalogs: map[string][]nativeDrama{}, catalogStates: map[string]nativeCatalogState{}}
 	restored.loadCatalogCache()
-	if restored.nativeCached(nativeCatalogKey(sourceHuangguoAI, "ai-hguoju")).Page != 2 {
+	if restored.nativeCached(nativeCatalogKey(sourceHuangguoAI, "ai-duanju")).Page != 2 {
 		t.Fatal("category position was not persisted")
 	}
 }

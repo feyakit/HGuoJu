@@ -41,7 +41,7 @@ class CategoryRepository extends FixtureRepository {
     'huangguo-video' => const [CatalogCategory.all, CatalogCategory('2', '短片')],
     'huangguoai' => const [
       CatalogCategory.all,
-      CatalogCategory('ai-hguoju', 'AI 短剧'),
+      CatalogCategory('ai-duanju', 'AI 短剧'),
       CatalogCategory('ai-manju', 'AI 漫剧'),
     ],
     'cloudfront' => const [
@@ -196,9 +196,9 @@ void main() {
       expect(find.text('过期分类结果'), findsNothing);
       expect(
         repository.categoryRequests,
-        containsAll(['huangguoai|ai-hguoju|1', 'cloudfront|old-short|1']),
+        containsAll(['huangguoai|ai-duanju|1', 'cloudfront|old-short|1']),
       );
-      expect(find.text('huangguoai · ai-hguoju'), findsOneWidget);
+      expect(find.text('huangguoai · ai-duanju'), findsOneWidget);
       expect(find.text('cloudfront · old-short'), findsOneWidget);
       expect(tester.takeException(), isNull);
     },

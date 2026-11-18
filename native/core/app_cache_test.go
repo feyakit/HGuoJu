@@ -183,7 +183,7 @@ func TestNativeCatalogCacheFreshnessPagingAndRefresh(t *testing.T) {
 	var calls atomic.Int32
 	upstream := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		calls.Add(1)
-		if r.URL.Path != "/api/videos/category/ai-hguoju" {
+		if r.URL.Path != "/api/videos/category/ai-duanju" {
 			t.Error("test must only request synthetic catalog metadata", r.URL.Path)
 			w.WriteHeader(http.StatusNotFound)
 			return
