@@ -1,4 +1,4 @@
-module duanjuapp/native
+module hguoju/native
 
 go 1.24.1
 

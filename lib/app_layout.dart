@@ -47,7 +47,7 @@ class AppDevice {
   const AppDevice({this.television = false, this.version = appVersion});
   final bool television;
   final String version;
-  static const channel = MethodChannel('duanju/device');
+  static const channel = MethodChannel('hguoju/device');
 
   static Future<AppDevice> detect({
     AppDevice fallback = const AppDevice(),

@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:duanju_app/home_screen.dart';
-import 'package:duanju_app/app_build.dart';
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/main.dart';
-import 'package:duanju_app/models.dart';
-import 'package:duanju_app/widgets.dart';
+import 'package:hguoju_app/home_screen.dart';
+import 'package:hguoju_app/app_build.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/main.dart';
+import 'package:hguoju_app/models.dart';
+import 'package:hguoju_app/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -45,7 +45,7 @@ void main() {
         await tester.pumpAndSettle();
       }
 
-      await tester.pumpWidget(DuanjuApp(repository: repository, store: store));
+      await tester.pumpWidget(HGuoJuApp(repository: repository, store: store));
       await tester.pumpAndSettle();
       expect(store.themeMode, 'system');
       expect(

@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:duanju_app/core_bridge.dart';
-import 'package:duanju_app/local_profiles.dart';
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/main.dart';
-import 'package:duanju_app/models.dart';
+import 'package:hguoju_app/core_bridge.dart';
+import 'package:hguoju_app/local_profiles.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/main.dart';
+import 'package:hguoju_app/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -190,7 +190,7 @@ void main() {
     });
     final store = LocalStore(await SharedPreferences.getInstance());
     await tester.pumpWidget(
-      DuanjuApp(repository: FixtureRepository(), store: store),
+      HGuoJuApp(repository: FixtureRepository(), store: store),
     );
     await tester.pumpAndSettle();
     expect(find.text('下载'), findsNothing);

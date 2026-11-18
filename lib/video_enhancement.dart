@@ -50,8 +50,8 @@ class VideoEnhancementController extends ChangeNotifier {
     _timer = Timer.periodic(const Duration(seconds: 2), (_) => _startMonitor());
   }
 
-  static const _device = MethodChannel('duanju/device');
-  static const _filterLabel = 'duanju_vsr';
+  static const _device = MethodChannel('hguoju/device');
+  static const _filterLabel = 'hguoju_vsr';
   final Player player;
   late final bool supported;
   final bool _animationHint;
@@ -515,7 +515,7 @@ class VideoEnhancementController extends ChangeNotifier {
         _recentEnhancementErrors.contains(value) ||
         active > 0 &&
             RegExp(
-              r'd3d11vpp|duanju_vsr|glsl.shaders|shader.*compil|compil.*shader',
+              r'd3d11vpp|hguoju_vsr|glsl.shaders|shader.*compil|compil.*shader',
               caseSensitive: false,
             ).hasMatch(value);
     if (!owned) return false;

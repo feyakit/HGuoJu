@@ -9,7 +9,7 @@ if(NOT CMAKE_SIZEOF_VOID_P EQUAL 8 OR FLUTTER_TARGET_PLATFORM STREQUAL "windows-
   message(FATAL_ERROR "The pinned media libraries require Windows x64.")
 endif()
 
-function(duanju_native_archive filename url digest destination)
+function(hguoju_native_archive filename url digest destination)
   set(archive "${CMAKE_BINARY_DIR}/${filename}")
   if(EXISTS "${archive}")
     file(SHA256 "${archive}" actual_digest)
@@ -33,8 +33,8 @@ function(duanju_native_archive filename url digest destination)
   endif()
 
   set(valid FALSE)
-  if(EXISTS "${destination}/.duanju-sha256")
-    file(READ "${destination}/.duanju-sha256" extracted_digest)
+  if(EXISTS "${destination}/.hguoju-sha256")
+    file(READ "${destination}/.hguoju-sha256" extracted_digest)
     if(extracted_digest STREQUAL digest)
       set(valid TRUE)
     endif()
@@ -60,12 +60,12 @@ function(duanju_native_archive filename url digest destination)
         message(FATAL_ERROR "${filename} is missing ${required}")
       endif()
     endforeach()
-    file(WRITE "${destination}/.duanju-sha256" "${digest}")
+    file(WRITE "${destination}/.hguoju-sha256" "${digest}")
   endif()
 endfunction()
 
 set(LIBMPV_SRC "${CMAKE_BINARY_DIR}/libmpv")
-duanju_native_archive(
+hguoju_native_archive(
   "mpv-dev-x86_64-20260921-git-e76a35ec95.7z"
   "https://github.com/shinchiro/mpv-winbuild-cmake/releases/download/20260921/mpv-dev-x86_64-20260921-git-e76a35ec95.7z"
   "361392d64a231830ac79d1c0f91ddb68c6a709accd282b2c87b13889d382fdec"
@@ -75,7 +75,7 @@ duanju_native_archive(
 file(COPY "${LIBMPV_SRC}/include/mpv/" DESTINATION "${LIBMPV_SRC}/include")
 
 set(ANGLE_SRC "${CMAKE_BINARY_DIR}/ANGLE")
-duanju_native_archive(
+hguoju_native_archive(
   "ANGLE-v1.0.1.7z"
   "https://github.com/alexmercerind/flutter-windows-ANGLE-OpenGL-ES/releases/download/v1.0.1/ANGLE.7z"
   "cc5911bb15d596fd5a2b362613ad35b7093b427117269a7359054a65746a5f9a"

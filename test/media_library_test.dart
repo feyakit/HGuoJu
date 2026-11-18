@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/media_library.dart';
-import 'package:duanju_app/media_pipeline.dart';
-import 'package:duanju_app/models.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/media_library.dart';
+import 'package:hguoju_app/media_pipeline.dart';
+import 'package:hguoju_app/models.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path/path.dart' as path;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -258,7 +258,7 @@ void main() {
   test(
     'real offline merge, CENC remux and Emby export remain playable after deleting inputs',
     () async {
-      final directory = await Directory.systemTemp.createTemp("真果鉴 '合成-");
+      final directory = await Directory.systemTemp.createTemp("真果剧 '合成-");
       SharedPreferences.setMockInitialValues({});
       final store = LocalStore(await SharedPreferences.getInstance());
       final executor = ProcessMediaExecutor();

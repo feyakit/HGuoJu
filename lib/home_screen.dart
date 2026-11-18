@@ -675,7 +675,7 @@ class _HomeScreenState extends State<HomeScreen> {
   });
 
   /// 连点「最近观看」6 次弹出站源密码锁（用于启用 / 关闭密码功能）。
-  /// 仅多源包（真果鉴）生效；红果鉴单源包无密码功能。
+  /// 仅多源包（真果剧）生效；果剧单源包无密码功能。
   void _onNavSelected(int tab) {
     if (allSourcesEnabled && tab == 2) {
       if (_recentTaps.register(tab)) {

@@ -1,7 +1,7 @@
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/main.dart';
-import 'package:duanju_app/models.dart';
-import 'package:duanju_app/app_build.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/main.dart';
+import 'package:hguoju_app/models.dart';
+import 'package:hguoju_app/app_build.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,7 +24,7 @@ void main() {
       addTearDown(tester.view.resetDevicePixelRatio);
       final repository = FixtureRepository();
       final local = await store();
-      await tester.pumpWidget(DuanjuApp(repository: repository, store: local));
+      await tester.pumpWidget(HGuoJuApp(repository: repository, store: local));
       await tester.pumpAndSettle();
       expect(find.byTooltip('VIP：隐藏'), findsNothing);
       expect(find.text('测试短剧'), findsOneWidget);
@@ -84,7 +84,7 @@ void main() {
   testWidgets('failed catalog can be retried', (tester) async {
     final repository = FixtureRepository()..fail = true;
     await tester.pumpWidget(
-      DuanjuApp(repository: repository, store: await store()),
+      HGuoJuApp(repository: repository, store: await store()),
     );
     await tester.pumpAndSettle();
     expect(find.text('暂时无法加载'), findsOneWidget);
@@ -115,7 +115,7 @@ void main() {
       hasMore: true,
     );
     await tester.pumpWidget(
-      DuanjuApp(repository: repository, store: await store()),
+      HGuoJuApp(repository: repository, store: await store()),
     );
     await tester.pumpAndSettle();
     expect(find.text('测试短剧'), findsOneWidget);
@@ -141,7 +141,7 @@ void main() {
     final repository = FixtureRepository()..fail = true;
     repository.cachedPages['hongguo'] = CatalogPage([FixtureRepository.free]);
     await tester.pumpWidget(
-      DuanjuApp(repository: repository, store: await store()),
+      HGuoJuApp(repository: repository, store: await store()),
     );
     await tester.pumpAndSettle();
     expect(find.text('测试短剧'), findsOneWidget);

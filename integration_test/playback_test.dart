@@ -1,15 +1,15 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:duanju_app/core_bridge.dart';
-import 'package:duanju_app/downloads_screen.dart';
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/media_library.dart';
-import 'package:duanju_app/media_pipeline.dart';
+import 'package:hguoju_app/core_bridge.dart';
+import 'package:hguoju_app/downloads_screen.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/media_library.dart';
+import 'package:hguoju_app/media_pipeline.dart';
 import 'package:flutter_foreground_task/flutter_foreground_task.dart';
-import 'package:duanju_app/main.dart';
-import 'package:duanju_app/models.dart';
-import 'package:duanju_app/player_screen.dart';
+import 'package:hguoju_app/main.dart';
+import 'package:hguoju_app/models.dart';
+import 'package:hguoju_app/player_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -262,7 +262,7 @@ void main() {
       binding.reportData!['playbackSamples'] = samples;
     }
 
-    await tester.pumpWidget(DuanjuApp(repository: repository, store: store));
+    await tester.pumpWidget(HGuoJuApp(repository: repository, store: store));
     await until(() => find.text('设备播放验证').evaluate().isNotEmpty, 'catalog');
     await tester.tap(find.text('设备播放验证'));
     await until(
@@ -462,7 +462,7 @@ void main() {
 
       try {
         await tester.pumpWidget(
-          DuanjuApp(repository: repository, store: store),
+          HGuoJuApp(repository: repository, store: store),
         );
         await until(
           () => find.text('设备播放验证').evaluate().isNotEmpty,

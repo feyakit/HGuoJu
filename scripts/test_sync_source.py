@@ -7,7 +7,7 @@ from sync_source import REQUIRED_FILES, synchronize
 
 class SourceSyncTests(unittest.TestCase):
     def setUp(self):
-        self.temporary = tempfile.TemporaryDirectory(prefix='duanju-source-sync-')
+        self.temporary = tempfile.TemporaryDirectory(prefix='hguoju-source-sync-')
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
         self.source = self.root / '源码'
@@ -29,9 +29,9 @@ class SourceSyncTests(unittest.TestCase):
             'build/app.apk', 'dist/app.zip', '.dart_tool/package_config.json',
             'android/local.properties', 'android/key.properties', 'android/signing.jks',
             'android/gradlew', 'android/gradle/wrapper/gradle-wrapper.jar',
-            'android/app/src/main/jniLibs/arm64-v8a/libduanju_core.so',
+            'android/app/src/main/jniLibs/arm64-v8a/libhguoju_core.so',
             'native/vendor/example/dependency.go', 'native/build/core.dll',
-            'windows/runner/duanju_core.dll', 'windows/runner/duanju_core.h',
+            'windows/runner/hguoju_core.dll', 'windows/runner/hguoju_core.h',
             'windows/flutter/ephemeral/config.cmake',
             'windows/flutter/generated_plugins.cmake',
             'scripts/__pycache__/script.pyc', 'scripts/.env.local', '.DS_Store',

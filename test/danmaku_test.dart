@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:duanju_app/danmaku_controller.dart';
-import 'package:duanju_app/danmaku_models.dart';
-import 'package:duanju_app/danmaku_overlay.dart';
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/models.dart';
-import 'package:duanju_app/playback_preferences.dart';
+import 'package:hguoju_app/danmaku_controller.dart';
+import 'package:hguoju_app/danmaku_models.dart';
+import 'package:hguoju_app/danmaku_overlay.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/models.dart';
+import 'package:hguoju_app/playback_preferences.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';

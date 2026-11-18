@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:duanju_app/core_bridge.dart';
-import 'package:duanju_app/danmaku_models.dart';
-import 'package:duanju_app/models.dart';
+import 'package:hguoju_app/core_bridge.dart';
+import 'package:hguoju_app/danmaku_models.dart';
+import 'package:hguoju_app/models.dart';
 
 import 'player_fixtures.dart';
 

@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:duanju_app/app_build.dart';
-import 'package:duanju_app/core_bridge.dart';
-import 'package:duanju_app/local_profiles.dart';
-import 'package:duanju_app/models.dart';
+import 'package:hguoju_app/app_build.dart';
+import 'package:hguoju_app/core_bridge.dart';
+import 'package:hguoju_app/local_profiles.dart';
+import 'package:hguoju_app/models.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -17,7 +17,7 @@ void main() {
   test('edition sources include DSD only in the all-source build', () async {
     SharedPreferences.setMockInitialValues({'source': 'huangdou'});
     final store = testStore(await SharedPreferences.getInstance());
-    expect(appSlug, allSourcesEnabled ? 'zhenguojian' : 'hongguojian');
+    expect(appSlug, allSourcesEnabled ? 'zhenguoju' : 'guoju');
     // 默认只显示红果、韩小圈、鬼片网与青空次元，其余站源需要密码解锁。
     expect(store.sources.length, allSourcesEnabled ? 4 : 1);
     expect(

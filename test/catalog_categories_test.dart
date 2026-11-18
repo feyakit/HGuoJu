@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:duanju_app/app_build.dart';
-import 'package:duanju_app/catalog_browser.dart';
-import 'package:duanju_app/core_bridge.dart';
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/main.dart';
-import 'package:duanju_app/models.dart';
-import 'package:duanju_app/ranking_models.dart';
-import 'package:duanju_app/widgets.dart';
+import 'package:hguoju_app/app_build.dart';
+import 'package:hguoju_app/catalog_browser.dart';
+import 'package:hguoju_app/core_bridge.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/main.dart';
+import 'package:hguoju_app/models.dart';
+import 'package:hguoju_app/ranking_models.dart';
+import 'package:hguoju_app/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -41,7 +41,7 @@ class CategoryRepository extends FixtureRepository {
     'huangguo-video' => const [CatalogCategory.all, CatalogCategory('2', '短片')],
     'huangguoai' => const [
       CatalogCategory.all,
-      CatalogCategory('ai-duanju', 'AI 短剧'),
+      CatalogCategory('ai-hguoju', 'AI 短剧'),
       CatalogCategory('ai-manju', 'AI 漫剧'),
     ],
     'cloudfront' => const [
@@ -125,7 +125,7 @@ void main() {
     final store = LocalStore(await SharedPreferences.getInstance());
     addTearDown(store.dispose);
     await store.setSource(source);
-    await tester.pumpWidget(DuanjuApp(repository: repository, store: store));
+    await tester.pumpWidget(HGuoJuApp(repository: repository, store: store));
     await tester.pumpAndSettle();
     return store;
   }
@@ -196,9 +196,9 @@ void main() {
       expect(find.text('过期分类结果'), findsNothing);
       expect(
         repository.categoryRequests,
-        containsAll(['huangguoai|ai-duanju|1', 'cloudfront|old-short|1']),
+        containsAll(['huangguoai|ai-hguoju|1', 'cloudfront|old-short|1']),
       );
-      expect(find.text('huangguoai · ai-duanju'), findsOneWidget);
+      expect(find.text('huangguoai · ai-hguoju'), findsOneWidget);
       expect(find.text('cloudfront · old-short'), findsOneWidget);
       expect(tester.takeException(), isNull);
     },

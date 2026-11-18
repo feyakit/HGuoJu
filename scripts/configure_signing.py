@@ -10,7 +10,7 @@ options = parser.parse_args()
 runner_temp = os.environ.get('RUNNER_TEMP')
 if not runner_temp:
     raise SystemExit('此脚本用于 GitHub Actions；本机构建请配置 android/key.properties。')
-key_file = Path(runner_temp) / 'duanju-release.jks'
+key_file = Path(runner_temp) / 'hguoju-release.jks'
 properties_file = root / 'android' / 'key.properties'
 if options.clean:
     if key_file.exists():

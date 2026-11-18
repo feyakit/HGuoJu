@@ -1,5 +1,5 @@
-import 'package:duanju_app/models.dart';
-import 'package:duanju_app/playback_recovery.dart';
+import 'package:hguoju_app/models.dart';
+import 'package:hguoju_app/playback_recovery.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

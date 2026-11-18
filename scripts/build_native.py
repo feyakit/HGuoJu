@@ -58,7 +58,7 @@ if options.platform == 'android':
         compiler = compilers / (name + ('.cmd' if platform.system() == 'Windows' else ''))
         if not compiler.exists():
             raise SystemExit('缺少 Android NDK 编译器：' + str(compiler))
-        output = root / 'android' / 'app' / 'src' / 'main' / 'jniLibs' / abi / 'libduanju_core.so'
+        output = root / 'android' / 'app' / 'src' / 'main' / 'jniLibs' / abi / 'libhguoju_core.so'
         extra = {'CGO_LDFLAGS': '-Wl,-z,max-page-size=16384'}
         if architecture == 'arm':
             extra['GOARM'] = '7'
@@ -67,11 +67,11 @@ elif options.platform == 'windows':
     compiler = shutil.which('x86_64-w64-mingw32-gcc') or (shutil.which('gcc') if platform.system() == 'Windows' else None)
     if not compiler:
         raise SystemExit('请安装 MinGW-w64，并将其 bin 目录加入 PATH。')
-    build('windows', 'amd64', compiler, root / 'windows' / 'runner' / 'duanju_core.dll',
+    build('windows', 'amd64', compiler, root / 'windows' / 'runner' / 'hguoju_core.dll',
           {'CGO_LDFLAGS': '-static-libgcc'})
 else:
     compiler = shutil.which('clang')
     if not compiler:
         raise SystemExit('需要安装 Xcode Command Line Tools。')
     build('darwin', 'arm64' if platform.machine() == 'arm64' else 'amd64', compiler,
-          root / 'native' / 'build' / 'darwin' / 'libduanju_core.dylib')
+          root / 'native' / 'build' / 'darwin' / 'libhguoju_core.dylib')

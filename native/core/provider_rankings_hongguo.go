@@ -59,7 +59,7 @@ func hongguoRankingURLPage(address string, board rankingBoard) (int, bool) {
 	if err != nil || parsed.User != nil || strings.TrimRight(parsed.Path, "/") != "/rank/"+board.path {
 		return 0, false
 	}
-	if parsed.Host != "" && parsed.Hostname() != "hongguoduanju.com" && parsed.Hostname() != "www.hongguoduanju.com" {
+	if parsed.Host != "" && parsed.Hostname() != "hongguohguoju.com" && parsed.Hostname() != "www.hongguohguoju.com" {
 		return 0, false
 	}
 	value := parsed.Query().Get("page")
@@ -75,7 +75,7 @@ func hongguoRankingDramaID(address string) string {
 	if err != nil || parsed.User != nil || parsed.Path != "/detail" {
 		return ""
 	}
-	if parsed.Host != "" && parsed.Hostname() != "hongguoduanju.com" && parsed.Hostname() != "www.hongguoduanju.com" {
+	if parsed.Host != "" && parsed.Hostname() != "hongguohguoju.com" && parsed.Hostname() != "www.hongguohguoju.com" {
 		return ""
 	}
 	id := parsed.Query().Get("series_id")

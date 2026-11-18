@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:duanju_app/core_bridge.dart';
-import 'package:duanju_app/models.dart';
-import 'package:duanju_app/source_status.dart';
+import 'package:hguoju_app/core_bridge.dart';
+import 'package:hguoju_app/models.dart';
+import 'package:hguoju_app/source_status.dart';
 
 import 'fixtures.dart';
 

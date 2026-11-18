@@ -426,7 +426,7 @@ packages:
       path: "packages/media_kit_libs_windows_video"
       relative: true
     source: path
-    version: "1.0.11+duanju.1"
+    version: "1.0.11+hguoju.1"
   media_kit_video:
     dependency: "direct main"
     description:

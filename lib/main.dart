@@ -180,7 +180,7 @@ class _AppBootstrapState extends State<AppBootstrap>
   }
 
   @override
-  Widget build(BuildContext context) => DuanjuApp(
+  Widget build(BuildContext context) => HGuoJuApp(
     repository: repository,
     store: store,
     bootstrapError: error?.toString(),
@@ -191,8 +191,8 @@ class _AppBootstrapState extends State<AppBootstrap>
   );
 }
 
-class DuanjuApp extends StatelessWidget {
-  const DuanjuApp({
+class HGuoJuApp extends StatelessWidget {
+  const HGuoJuApp({
     super.key,
     required this.repository,
     this.store,

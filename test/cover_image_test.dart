@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:duanju_app/core_bridge.dart';
-import 'package:duanju_app/models.dart';
-import 'package:duanju_app/widgets.dart';
+import 'package:hguoju_app/core_bridge.dart';
+import 'package:hguoju_app/models.dart';
+import 'package:hguoju_app/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

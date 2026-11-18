@@ -1,8 +1,8 @@
-import 'package:duanju_app/core_bridge.dart';
+import 'package:hguoju_app/core_bridge.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:duanju_app/local_profiles.dart';
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/models.dart';
+import 'package:hguoju_app/local_profiles.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/models.dart';
 
 /// 站源密码锁测试夹具：为非管理员会话预先写入可解锁的密码锁配置。
 const gateSalt = '0123456789abcdef0123456789abcdef';

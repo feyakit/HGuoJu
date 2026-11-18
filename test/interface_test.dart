@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:duanju_app/app_theme.dart';
-import 'package:duanju_app/app_build.dart';
-import 'package:duanju_app/core_bridge.dart';
-import 'package:duanju_app/downloads_screen.dart';
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/main.dart';
-import 'package:duanju_app/models.dart';
-import 'package:duanju_app/widgets.dart';
+import 'package:hguoju_app/app_theme.dart';
+import 'package:hguoju_app/app_build.dart';
+import 'package:hguoju_app/core_bridge.dart';
+import 'package:hguoju_app/downloads_screen.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/main.dart';
+import 'package:hguoju_app/models.dart';
+import 'package:hguoju_app/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,7 +36,7 @@ void main() {
       viewport(tester, const Size(390, 844));
       final repository = InterfaceRepository();
       await tester.pumpWidget(
-        DuanjuApp(repository: repository, store: await localStore()),
+        HGuoJuApp(repository: repository, store: await localStore()),
       );
       await tester.pumpAndSettle();
       final refresh = find.byKey(const ValueKey('catalog-refresh'));
@@ -90,7 +90,7 @@ void main() {
     viewport(tester, const Size(390, 844));
     final repository = InterfaceRepository();
     final store = await localStore();
-    await tester.pumpWidget(DuanjuApp(repository: repository, store: store));
+    await tester.pumpWidget(HGuoJuApp(repository: repository, store: store));
     await tester.pumpAndSettle();
     Future<void> select(String name) async {
       if (SourceGroup.fromSources(SourceSite.values).length <= 1) return;
@@ -154,7 +154,7 @@ void main() {
         );
       }
       await tester.pumpWidget(
-        DuanjuApp(repository: repository, store: store, television: layout.$3),
+        HGuoJuApp(repository: repository, store: store, television: layout.$3),
       );
       await tester.pumpAndSettle();
       Size? catalogSize;

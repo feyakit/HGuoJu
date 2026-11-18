@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-import 'package:duanju_app/danmaku_controller.dart';
-import 'package:duanju_app/danmaku_overlay.dart';
-import 'package:duanju_app/local_profiles.dart';
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/player_menu.dart';
-import 'package:duanju_app/player_screen.dart';
-import 'package:duanju_app/playback_preferences.dart';
-import 'package:duanju_app/television_controls.dart';
+import 'package:hguoju_app/danmaku_controller.dart';
+import 'package:hguoju_app/danmaku_overlay.dart';
+import 'package:hguoju_app/local_profiles.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/player_menu.dart';
+import 'package:hguoju_app/player_screen.dart';
+import 'package:hguoju_app/playback_preferences.dart';
+import 'package:hguoju_app/television_controls.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:media_kit/media_kit.dart';

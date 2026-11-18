@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:duanju_app/local_profiles.dart';
-import 'package:duanju_app/local_snapshot.dart';
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/models.dart';
-import 'package:duanju_app/playback_preferences.dart';
-import 'package:duanju_app/profiles_screen.dart';
+import 'package:hguoju_app/local_profiles.dart';
+import 'package:hguoju_app/local_snapshot.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/models.dart';
+import 'package:hguoju_app/playback_preferences.dart';
+import 'package:hguoju_app/profiles_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';

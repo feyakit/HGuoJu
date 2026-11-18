@@ -1,8 +1,8 @@
-import 'package:duanju_app/app_layout.dart';
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/main.dart';
-import 'package:duanju_app/models.dart';
-import 'package:duanju_app/remote_widgets.dart';
+import 'package:hguoju_app/app_layout.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/main.dart';
+import 'package:hguoju_app/models.dart';
+import 'package:hguoju_app/remote_widgets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -87,7 +87,7 @@ void main() {
       final store = await makeStore();
       final repository = FixtureRepository();
       await tester.pumpWidget(
-        DuanjuApp(repository: repository, store: store, television: true),
+        HGuoJuApp(repository: repository, store: store, television: true),
       );
       await tester.pumpAndSettle();
       expect(find.byKey(const ValueKey('tv-nav-0')), findsOneWidget);
@@ -115,7 +115,7 @@ void main() {
         final store = await makeStore();
         final repository = TelevisionRepository();
         await tester.pumpWidget(
-          DuanjuApp(repository: repository, store: store, television: true),
+          HGuoJuApp(repository: repository, store: store, television: true),
         );
         await tester.pumpAndSettle();
         if (SourceSite.values.length > 1) {

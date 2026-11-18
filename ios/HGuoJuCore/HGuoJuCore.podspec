@@ -1,21 +1,21 @@
 Pod::Spec.new do |spec|
-  spec.name = 'DuanjuCore'
+  spec.name = 'HGuoJuCore'
   spec.version = '0.2.0'
-  spec.summary = '真果鉴本地站源核心'
+  spec.summary = '真果剧本地站源核心'
   spec.homepage = 'https://github.com/fish2018/guoapp'
-  spec.author = '真果鉴 contributors'
+  spec.author = '真果剧 contributors'
   spec.source = { :path => '.' }
   spec.license = { :type => 'See application repository' }
   spec.ios.deployment_target = '15.1'
   spec.source_files = 'Sources/**/*.{h,m}'
   spec.public_header_files = 'Sources/*.h'
-  spec.vendored_frameworks = 'DuanjuCore.xcframework'
+  spec.vendored_frameworks = 'HGuoJuCore.xcframework'
   spec.static_framework = true
   spec.frameworks = 'Foundation', 'CoreFoundation', 'Security'
   spec.libraries = 'resolv'
   spec.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   spec.user_target_xcconfig = {
-    'OTHER_LDFLAGS' => '$(inherited) -Wl,-u,_DuanjuRequest -Wl,-u,_DuanjuFree -Wl,-export_dynamic',
+    'OTHER_LDFLAGS' => '$(inherited) -Wl,-u,_HGuoJuRequest -Wl,-u,_HGuoJuFree -Wl,-export_dynamic',
     'STRIP_STYLE' => 'non-global'
   }
 end

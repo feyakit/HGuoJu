@@ -14,7 +14,7 @@ import (
 	"time"
 )
 
-const hongguoBaseURL = "https://hongguoduanju.com"
+const hongguoBaseURL = "https://hongguohguoju.com"
 
 func (d *Downloader) fetchHongguoDramas(ctx context.Context) ([]Drama, error) {
 	initialized := hongguoCatalogInitialized(d.hongguoCatalogSnapshot())

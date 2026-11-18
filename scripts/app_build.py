@@ -8,11 +8,11 @@ class BuildVariant:
 
     @property
     def name(self):
-        return '真果鉴' if self.all_sources else '红果鉴'
+        return '真果剧' if self.all_sources else '果剧'
 
     @property
     def slug(self):
-        return 'zhenguojian' if self.all_sources else 'hongguojian'
+        return 'zhenguoju' if self.all_sources else 'guoju'
 
     @property
     def arguments(self):
@@ -24,7 +24,7 @@ class BuildVariant:
 
     @property
     def linker_flags(self):
-        return '-s -w -X duanjuapp/native/core.buildAllSources=' + str(self.all_sources).lower()
+        return '-s -w -X hguoju/native/core.buildAllSources=' + str(self.all_sources).lower()
 
     @classmethod
     def from_dart_defines(cls, encoded):
@@ -40,4 +40,4 @@ class BuildVariant:
 
 def add_variant_argument(parser):
     parser.add_argument('--all-sources', action='store_true',
-                        help='构建包含全部站源的真果鉴；默认构建仅红果的红果鉴')
+                        help='构建包含全部站源的真果剧；默认构建仅红果的果剧')

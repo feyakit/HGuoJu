@@ -1,8 +1,8 @@
-import 'package:duanju_app/app_bottom_navigation.dart';
-import 'package:duanju_app/home_screen.dart';
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/main.dart';
-import 'package:duanju_app/settings_screen.dart';
+import 'package:hguoju_app/app_bottom_navigation.dart';
+import 'package:hguoju_app/home_screen.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/main.dart';
+import 'package:hguoju_app/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -52,7 +52,7 @@ void main() {
     Player player() =>
         tester.widget<Video>(find.byType(Video)).controller.player;
 
-    await tester.pumpWidget(DuanjuApp(repository: repository, store: store));
+    await tester.pumpWidget(HGuoJuApp(repository: repository, store: store));
     await tester.pumpAndSettle();
     await binding.convertFlutterSurfaceToImage();
     await capture('appearance-system-home');

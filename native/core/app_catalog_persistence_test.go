@@ -221,7 +221,7 @@ func TestNativeHongguoStalledCursorKeepsPartialItems(t *testing.T) {
 func TestNativeCatalogPreservesLargeLibraryAndPage501(t *testing.T) {
 	var requested string
 	engine := sourceFixtureEngine(t, func(request *http.Request) (*http.Response, error) {
-		if request.URL.Path != "/api/videos/category/ai-duanju" {
+		if request.URL.Path != "/api/videos/category/ai-hguoju" {
 			return nil, errors.New("only synthetic catalog metadata is allowed")
 		}
 		requested = request.URL.Query().Get("page")
@@ -231,11 +231,11 @@ func TestNativeCatalogPreservesLargeLibraryAndPage501(t *testing.T) {
 	for index := range items {
 		items[index] = nativeDrama{ID: fmt.Sprintf("huangguoai:%d", index+1), Source: sourceHuangguoAI, Title: "合成目录"}
 	}
-	key := nativeCatalogKey(sourceHuangguoAI, "ai-duanju")
+	key := nativeCatalogKey(sourceHuangguoAI, "ai-hguoju")
 	if err := engine.saveCatalogCache(key, &nativeCatalogResult{Items: items, Page: 500, HasMore: true}); err != nil {
 		t.Fatal(err)
 	}
-	if result, err := engine.nativeCatalog(context.Background(), nativeInput{Source: sourceHuangguoAI, Category: "ai-duanju", Page: 501}); err != nil || result.Warning != "" {
+	if result, err := engine.nativeCatalog(context.Background(), nativeInput{Source: sourceHuangguoAI, Category: "ai-hguoju", Page: 501}); err != nil || result.Warning != "" {
 		t.Fatal(err, result.Warning)
 	}
 	if requested != "501" {

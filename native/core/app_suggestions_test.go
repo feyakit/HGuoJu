@@ -19,7 +19,7 @@ func TestNativeSuggestionsOfficialContract(t *testing.T) {
 	engine := &nativeEngine{downloader: &Downloader{
 		limiter: newRequestLimiter(1, 0),
 		client: &http.Client{Timeout: time.Second, Transport: suggestionTransport(func(request *http.Request) (*http.Response, error) {
-			if request.URL.Host != "hongguoduanju.com" || request.URL.Path != "/incent_resource/suggestion" ||
+			if request.URL.Host != "hongguohguoju.com" || request.URL.Path != "/incent_resource/suggestion" ||
 				request.URL.Query().Get("query") != "永 & 世" || request.URL.Query().Get("app_id") != "8662" ||
 				request.URL.Query().Get("count") != "10" || request.Header.Get("Cookie") != "" {
 				t.Fatalf("unexpected suggestion request: %s", request.URL)

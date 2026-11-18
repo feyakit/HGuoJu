@@ -42,7 +42,7 @@ def build_core(simulator=False, variant=BuildVariant()):
         directory = root / 'native' / 'build' / 'ios' / f'{sdk}-{architecture}'
         headers = directory / 'Headers'
         headers.mkdir(parents=True, exist_ok=True)
-        output = directory / 'libDuanjuCore.a'
+        output = directory / 'libHGuoJuCore.a'
         flags = shlex.join(['-isysroot', sdk_path, '-target', triple])
         build_env = environment | {
             'GOOS': 'ios', 'GOARCH': architecture, 'CC': compiler,
@@ -50,7 +50,7 @@ def build_core(simulator=False, variant=BuildVariant()):
         }
         run([go, 'build', '-trimpath', '-buildmode=c-archive', '-ldflags=' + variant.linker_flags,
              '-o', str(output), './bridge'], cwd=root / 'native', env=build_env)
-        shutil.copy2(output.with_suffix('.h'), headers / 'DuanjuCore.h')
+        shutil.copy2(output.with_suffix('.h'), headers / 'HGuoJuCore.h')
         libraries.append((sdk, output, headers))
     arguments = ['xcodebuild', '-create-xcframework']
     device = libraries[0]
@@ -58,17 +58,17 @@ def build_core(simulator=False, variant=BuildVariant()):
     if simulator:
         universal = root / 'native' / 'build' / 'ios' / 'simulator-universal'
         universal.mkdir(parents=True, exist_ok=True)
-        archive = universal / 'libDuanjuCore.a'
+        archive = universal / 'libHGuoJuCore.a'
         run(['xcrun', 'lipo', '-create', str(libraries[1][1]), str(libraries[2][1]), '-output', str(archive)])
         arguments.extend(['-library', str(archive), '-headers', str(libraries[1][2])])
-    framework = root / 'ios' / 'DuanjuCore' / 'DuanjuCore.xcframework'
+    framework = root / 'ios' / 'HGuoJuCore' / 'HGuoJuCore.xcframework'
     if framework.exists():
         shutil.rmtree(framework)
     run(arguments + ['-output', str(framework)])
 
 
 def main():
-    parser = argparse.ArgumentParser(description='构建红果鉴 / 真果鉴 iOS 核心和应用')
+    parser = argparse.ArgumentParser(description='构建果剧 / 真果剧 iOS 核心和应用')
     parser.add_argument('--core-only', action='store_true')
     parser.add_argument('--simulator', action='store_true', help='额外生成模拟器核心；不启动模拟器')
     parser.add_argument('--export-options', type=Path, help='使用自己的 Xcode 签名配置导出 IPA')
@@ -100,7 +100,7 @@ def main():
         run([flutter, 'build', 'ios', '--release', '--no-codesign', '--no-pub', *variant.flutter_arguments])
         application = root / 'build' / 'ios' / 'iphoneos' / 'Runner.app'
         symbols = subprocess.check_output(['xcrun', 'nm', '-gU', str(application / 'Runner')], text=True)
-        for symbol in ['_DuanjuRequest', '_DuanjuFree']:
+        for symbol in ['_HGuoJuRequest', '_HGuoJuFree']:
             if symbol not in symbols:
                 raise SystemExit('iOS 包缺少 FFI 入口：' + symbol)
         destination = output / f'{variant.slug}-{version}-ios-unsigned-app.zip'

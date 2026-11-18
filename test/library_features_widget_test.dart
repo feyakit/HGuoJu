@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:duanju_app/batch_download_screen.dart';
-import 'package:duanju_app/detail_screen.dart';
-import 'package:duanju_app/follow_state.dart';
-import 'package:duanju_app/home_screen.dart';
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/models.dart';
-import 'package:duanju_app/saved_library.dart';
-import 'package:duanju_app/widgets.dart';
+import 'package:hguoju_app/batch_download_screen.dart';
+import 'package:hguoju_app/detail_screen.dart';
+import 'package:hguoju_app/follow_state.dart';
+import 'package:hguoju_app/home_screen.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/models.dart';
+import 'package:hguoju_app/saved_library.dart';
+import 'package:hguoju_app/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';

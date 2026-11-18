@@ -28,10 +28,10 @@ typedef _DartFree = void Function(Pointer<Utf8>);
 String _nativeRequest(String body) {
   final DynamicLibrary library;
   if (Platform.isAndroid) {
-    library = DynamicLibrary.open('libduanju_core.so');
+    library = DynamicLibrary.open('libhguoju_core.so');
   } else if (Platform.isWindows) {
     library = DynamicLibrary.open(
-      path.join(path.dirname(Platform.resolvedExecutable), 'duanju_core.dll'),
+      path.join(path.dirname(Platform.resolvedExecutable), 'hguoju_core.dll'),
     );
   } else if (Platform.isIOS) {
     library = DynamicLibrary.process();
@@ -39,9 +39,9 @@ String _nativeRequest(String body) {
     throw UnsupportedError('当前首版支持 Android 手机和 Windows 电脑');
   }
   final request = library.lookupFunction<_NativeRequest, _DartRequest>(
-    'DuanjuRequest',
+    'HGuoJuRequest',
   );
-  final free = library.lookupFunction<_NativeFree, _DartFree>('DuanjuFree');
+  final free = library.lookupFunction<_NativeFree, _DartFree>('HGuoJuFree');
   final input = body.toNativeUtf8();
   Pointer<Utf8> output = nullptr;
   try {

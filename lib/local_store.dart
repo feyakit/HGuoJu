@@ -983,7 +983,7 @@ class LocalStore extends ChangeNotifier {
     _requireAdmin();
     final content = jsonEncode({
       'schema': 1,
-      'app': 'zhenguojian',
+      'app': 'zhenguoju',
       'profiles': _profiles.map((profile) => profile.toJson()).toList(),
       'displayMode': displayMode,
       'themeMode': themeMode,
@@ -1034,7 +1034,7 @@ class LocalStore extends ChangeNotifier {
       throw const FormatException('备份文件过大');
     }
     final data = jsonDecode(content) as Map<String, dynamic>;
-    if (data['schema'] != 1 || data['app'] != 'zhenguojian') {
+    if (data['schema'] != 1 || data['app'] != 'zhenguoju') {
       throw const FormatException('不支持的备份格式');
     }
     final profiles = _readProfiles(data['profiles']);
@@ -1210,7 +1210,7 @@ class LocalStore extends ChangeNotifier {
   String exportRecoveryData() {
     if (_configurationError == null) throw StateError('请从设置中导出备份');
     return jsonEncode({
-      'app': 'zhenguojian',
+      'app': 'zhenguoju',
       'recovery': true,
       'values': {
         for (final key in preferences.getKeys())

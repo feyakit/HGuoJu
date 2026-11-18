@@ -42,7 +42,7 @@ EXCLUDED_PATTERNS = (
 )
 EXCLUDED_PATHS = {
     'android/gradlew', 'android/gradlew.bat',
-    'windows/runner/duanju_core.h',
+    'windows/runner/hguoju_core.h',
     'windows/flutter/generated_plugin_registrant.cc',
     'windows/flutter/generated_plugin_registrant.h',
     'windows/flutter/generated_plugins.cmake',

@@ -127,7 +127,7 @@ func (engine *nativeEngine) moveDownloads(ctx context.Context, parent string) er
 		return errors.New("请等待本地媒体处理完成后再迁移")
 	}
 	defer engine.mu.Unlock()
-	target := filepath.Join(filepath.Clean(parent), "zhenguojian-downloads")
+	target := filepath.Join(filepath.Clean(parent), "zhenguoju-downloads")
 	manager.mu.Lock()
 	if manager.loadErr != nil {
 		manager.mu.Unlock()

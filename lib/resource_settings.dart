@@ -69,7 +69,7 @@ class SystemProxyMonitor with WidgetsBindingObserver {
     _reading = true;
     try {
       final result = await const MethodChannel(
-        'duanju/device',
+        'hguoju/device',
       ).invokeMapMethod<String, dynamic>('systemProxy');
       if (result != null) await update(result);
     } catch (_) {

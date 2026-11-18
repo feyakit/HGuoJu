@@ -23,26 +23,26 @@ class AppBuildTests(unittest.TestCase):
         for encoded in ['', dart_defines('ALL_SOURCES=false'), dart_defines('OTHER=true')]:
             variant = BuildVariant.from_dart_defines(encoded)
             self.assertFalse(variant.all_sources)
-            self.assertEqual(variant.name, '红果鉴')
-            self.assertEqual(variant.slug, 'hongguojian')
+            self.assertEqual(variant.name, '果剧')
+            self.assertEqual(variant.slug, 'guoju')
 
     def test_full_edition_decodes_among_other_flutter_defines(self):
         variant = BuildVariant.from_dart_defines(dart_defines(
             'OTHER=中文', 'ALL_SOURCES=true', 'VALUE=a=b'))
         self.assertTrue(variant.all_sources)
-        self.assertEqual(variant.name, '真果鉴')
-        self.assertEqual(variant.slug, 'zhenguojian')
+        self.assertEqual(variant.name, '真果剧')
+        self.assertEqual(variant.slug, 'zhenguoju')
 
     def test_ios_branding_can_switch_editions_without_replacing_bundle_identity(self):
         with tempfile.TemporaryDirectory() as temporary:
             path = Path(temporary) / 'Info.plist'
-            original = {'CFBundleIdentifier': 'com.duanju.duanjuApp', 'CFBundleVersion': '9'}
+            original = {'CFBundleIdentifier': 'com.hguoju.app', 'CFBundleVersion': '9'}
             path.write_bytes(plistlib.dumps(original))
             for enabled in [True, False]:
                 configure(path, dart_defines('ALL_SOURCES=' + str(enabled).lower()))
                 actual = plistlib.loads(path.read_bytes())
-                self.assertEqual(actual['CFBundleDisplayName'], '真果鉴' if enabled else '红果鉴')
-                self.assertEqual(actual['CFBundleName'], 'zhenguojian' if enabled else 'hongguojian')
+                self.assertEqual(actual['CFBundleDisplayName'], '真果剧' if enabled else '果剧')
+                self.assertEqual(actual['CFBundleName'], 'zhenguoju' if enabled else 'guoju')
                 for key, value in original.items():
                     self.assertEqual(actual[key], value)
 
@@ -50,10 +50,10 @@ class AppBuildTests(unittest.TestCase):
     def test_windows_reads_defines_from_flutter_tool_environment(self):
         branding = Path(__file__).resolve().parents[1] / 'windows/runner/app_branding.cmake'
         for flags, expected in [
-            ([], '红果鉴'),
-            (['ALL_SOURCES=true'], '真果鉴'),
-            (['OTHER=true', 'ALL_SOURCES=false'], '红果鉴'),
-            (['ALL_SOURCES=true', 'ALL_SOURCES=false'], '红果鉴'),
+            ([], '果剧'),
+            (['ALL_SOURCES=true'], '真果剧'),
+            (['OTHER=true', 'ALL_SOURCES=false'], '果剧'),
+            (['ALL_SOURCES=true', 'ALL_SOURCES=false'], '果剧'),
         ]:
             with self.subTest(flags=flags), tempfile.TemporaryDirectory() as temporary:
                 script = Path(temporary) / 'check.cmake'

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:duanju_app/models.dart';
+import 'package:hguoju_app/models.dart';
 
 import 'fixtures.dart';
 

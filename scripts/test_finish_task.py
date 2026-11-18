@@ -9,7 +9,7 @@ from sync_source import REQUIRED_FILES, synchronize
 
 class TaskSnapshotTests(unittest.TestCase):
     def setUp(self):
-        self.temporary = tempfile.TemporaryDirectory(prefix='duanju-snapshot-test-')
+        self.temporary = tempfile.TemporaryDirectory(prefix='hguoju-snapshot-test-')
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
         self.source = self.root / '源码'

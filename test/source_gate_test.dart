@@ -1,7 +1,7 @@
-import 'package:duanju_app/app_build.dart';
-import 'package:duanju_app/local_store.dart';
-import 'package:duanju_app/source_gate_dialog.dart';
-import 'package:duanju_app/source_gate_taps.dart';
+import 'package:hguoju_app/app_build.dart';
+import 'package:hguoju_app/local_store.dart';
+import 'package:hguoju_app/source_gate_dialog.dart';
+import 'package:hguoju_app/source_gate_taps.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';

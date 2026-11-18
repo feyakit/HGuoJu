@@ -1,4 +1,6 @@
-# 真果鉴开发约定
+# 真果剧（HGuoJu）开发约定
+
+> 本仓库 `feyakit/HGuoJu` 是上游 `zhoufuweigg/guoapp` 的自用改名分支，以下约定沿用上游；上游同步脚本（`scripts/finish_task.py`、`scripts/sync_source.py`）在本仓库中保留但非必需。
 
 ## 项目目标
 
